@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 定义Maven项目对象模型（POM）的根元素 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<!-- 指定POM模型的版本，固定为4.0.0 -->
+	<modelVersion>4.0.0</modelVersion>
+	<!-- 定义项目的父项目 -->
+	<parent>
+		<!-- 父项目的组ID -->
+		<groupId>org.springframework.boot</groupId>
+		<!-- 父项目的工件ID -->
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<!-- 父项目的版本 -->
+		<version>3.4.2</version>
+		<!-- 相对路径，为空表示从仓库查找父项目 -->
+		<relativePath/>
+		<!-- lookup parent from repository -->
+	</parent>
+	<!-- 项目的组ID -->
+	<groupId>com.d7g</groupId>
+	<!-- 项目的工件ID -->
+	<artifactId>d7gback</artifactId>
+	<!-- 项目的版本 -->
+	<version>0.0.1-SNAPSHOT</version>
+	<!-- 项目的名称 -->
+	<name>d7gback</name>
+	<!-- 项目的描述 -->
+	<description>Demo project for Spring Boot</description>
+	<!-- 项目的URL，这里为空 -->
+	<url/>
+	<!-- 项目的许可证信息 -->
+	<licenses>
+		<license/>
+	</licenses>
+	<!-- 项目的开发者信息 -->
+	<developers>
+		<developer/>
+	</developers>
+	<!-- 项目的源代码管理信息 -->
+	<scm>
+		<!-- 连接信息 -->
+		<connection/>
+		<!-- 开发者连接信息 -->
+		<developerConnection/>
+		<!-- 标签信息 -->
+		<tag/>
+		<!-- 源代码管理的URL -->
+		<url/>
+	</scm>
+	<!-- 项目的属性 -->
+	<properties>
+		<!-- Java版本 -->
+		<java.version>17</java.version>
+	</properties>
+	<!-- 项目的依赖 -->
+	<dependencies>
+
+		<!-- Spring Boot开发工具依赖，运行时范围 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Spring Boot JDBC数据访问依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
+		</dependency>
+
+		<!-- Spring Boot JPA数据访问依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!-- Spring Boot Web开发依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- Spring Boot测试依赖，测试范围 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Lombok依赖，可选 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- H2数据库依赖 -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>2.2.224</version>
+		</dependency>
+
+		<!-- Log4jdbc日志记录依赖 -->
+		<dependency>
+			<groupId>org.bgee.log4jdbc-log4j2</groupId>
+			<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+			<version>1.16</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.idev.excel</groupId>
+			<artifactId>fastexcel</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>2.0.31</version>
+		</dependency>
+
+		<!-- MySQL数据库驱动依赖 -->
+		<!-- Javax Persistence API依赖 -->
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
+			<version>2.2</version>
+		</dependency>
+
+		<!-- Commons IO依赖 -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.18.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.27.1</version>
+		</dependency>
+
+	</dependencies>
+
+	<!-- 项目的构建配置 -->
+	<build>
+		<!-- 构建插件 -->
+		<plugins>
+			<!-- Maven编译器插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<!-- 注解处理器路径 -->
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+			<!-- Spring Boot Maven插件 -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<!-- 排除的依赖 -->
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>

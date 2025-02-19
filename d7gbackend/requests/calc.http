@@ -1,0 +1,9 @@
+POST http://localhost:8080/excel/upload HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="demo.xlsx"
+Content-Type: text/plain
+
+@file=D:\WrkSpc\000_Project\004_d7g-org\d7gbackend\requests\demo.xlsx
+--boundary--

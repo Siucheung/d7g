@@ -1,0 +1,4 @@
+[submodule "d7gfrontend"]
+	path = d7gfrontend
+	url = https://github.com/Siucheung/d7g-pure-admin-thin-frontend.git
+	branch = d7g_dev

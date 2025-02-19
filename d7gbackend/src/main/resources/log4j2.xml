@@ -1,0 +1,36 @@
+<!-- 配置 Log4j2 的整体状态为 WARN，即只输出警告及以上级别的日志信息 -->
+<Configuration status="WARN">
+    <!-- 定义日志的输出目的地，即 Appender -->
+    <Appenders>
+        <!-- 定义一个名为 Console 的控制台输出 Appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- 配置控制台输出的日志格式 -->
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <!-- 定义一个名为 RollingFile 的滚动文件输出 Appender -->
+        <RollingFile name="RollingFile" fileName="logs/application.log"
+                     filePattern="logs/application.%d{yyyy-MM-dd}.log">
+            <!-- 配置滚动文件输出的日志格式 -->
+            <PatternLayout>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</pattern>
+            </PatternLayout>
+            <!-- 定义日志文件滚动的策略 -->
+            <Policies>
+                <!-- 基于时间触发日志文件滚动，每天生成一个新的日志文件 -->
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+            <!-- 配置日志文件滚动的默认策略，最多保留 30 个历史日志文件 -->
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+    </Appenders>
+    <!-- 定义日志记录器，即 Logger -->
+    <Loggers>
+        <!-- 定义根日志记录器，日志级别为 info -->
+        <Root level="info">
+            <!-- 将 Console Appender 关联到根日志记录器 -->
+            <AppenderRef ref="Console"/>
+            <!-- 将 RollingFile Appender 关联到根日志记录器 -->
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
