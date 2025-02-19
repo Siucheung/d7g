@@ -19,11 +19,11 @@
 	<!-- 项目的组ID -->
 	<groupId>com.d7g</groupId>
 	<!-- 项目的工件ID -->
-	<artifactId>d7gback</artifactId>
+	<artifactId>d7gbackend</artifactId>
 	<!-- 项目的版本 -->
 	<version>0.0.1-SNAPSHOT</version>
 	<!-- 项目的名称 -->
-	<name>d7gback</name>
+	<name>d7gbackend</name>
 	<!-- 项目的描述 -->
 	<description>Demo project for Spring Boot</description>
 	<!-- 项目的URL，这里为空 -->
