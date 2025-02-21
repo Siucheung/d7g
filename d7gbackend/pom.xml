@@ -11,7 +11,7 @@
 		<!-- 父项目的工件ID -->
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<!-- 父项目的版本 -->
-		<version>3.4.2</version>
+		<version>3.4.3</version>
 		<!-- 相对路径，为空表示从仓库查找父项目 -->
 		<relativePath/>
 		<!-- lookup parent from repository -->
@@ -98,28 +98,30 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>2.2.224</version>
 		</dependency>
 
 		<!-- Log4jdbc日志记录依赖 -->
+		<!-- 这些依赖可以检查是否从父项目继承版本 -->
 		<dependency>
-			<groupId>org.bgee.log4jdbc-log4j2</groupId>
-			<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
-			<version>1.16</version>
+		    <groupId>org.bgee.log4jdbc-log4j2</groupId>
+		    <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+		    <version>1.16</version>
 		</dependency>
-
 		<dependency>
-			<groupId>cn.idev.excel</groupId>
-			<artifactId>fastexcel</artifactId>
-			<version>1.1.0</version>
+		    <groupId>cn.idev.excel</groupId>
+		    <artifactId>fastexcel</artifactId>
+		    <version>1.1.0</version>
 		</dependency>
-
 		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			<version>2.0.31</version>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		    <version>2.0.31</version>
 		</dependency>
-
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>5.2.4</version>
+		</dependency>
 		<!-- MySQL数据库驱动依赖 -->
 		<!-- Javax Persistence API依赖 -->
 		<dependency>
@@ -167,12 +169,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<!-- 排除的依赖 -->
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
 				</configuration>
 			</plugin>
 		</plugins>
