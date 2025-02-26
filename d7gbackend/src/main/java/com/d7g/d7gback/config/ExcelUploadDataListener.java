@@ -39,6 +39,7 @@ public class ExcelUploadDataListener extends AnalysisEventListener<ExcelDemoMode
     public void invoke(ExcelDemoModel data, AnalysisContext context) {
         // 记录解析到的一条数据的 JSON 格式信息
         log.info("解析到一条数据: {}", JSON.toJSONString(data));
+        
         // 将解析到的数据添加到列表中
         list.add(data);
     }

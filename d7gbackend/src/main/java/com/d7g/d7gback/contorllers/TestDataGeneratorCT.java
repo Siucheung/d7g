@@ -21,7 +21,9 @@ public class TestDataGeneratorCT {
     private TestDataGenerator testDataGenerator;
 
     @PostMapping("/new")
-    public ResponseEntity<?> generateTestData(@RequestBody Object input) {
+    public ResponseEntity<?> generateTestData(@RequestBody String input) {
+        log.info(input);
+        log.info(testDataGenerator.detectType(input));
         return ResponseEntity.ok(testDataGenerator.generateTestData(input));
     }
 }

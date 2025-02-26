@@ -11,10 +11,14 @@ import cn.idev.excel.annotation.ExcelProperty;
 @Setter
 @ToString
 public class ExcelDemoModel {
-    @ExcelProperty("测试内容")
-    private String string;
-    @ExcelProperty("测试时间")
-    private Date date;
-    @ExcelProperty("测试分值")
-    private Double doubleData;
+    @ExcelProperty("参数释义")
+    private String parameterDescription;
+    @ExcelProperty("参数名")
+    private String parameterName;
+    @ExcelProperty("参数类型")
+    private String parameterType;
+    @ExcelProperty("是否必填")
+    private Boolean required;
+    @ExcelProperty("说明")
+    private String description;
 }

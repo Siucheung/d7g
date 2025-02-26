@@ -1,5 +1,5 @@
 <!-- 配置 Log4j2 的整体状态为 WARN，即只输出警告及以上级别的日志信息 -->
-<Configuration status="WARN">
+<Configuration status="INFO">
     <!-- 定义日志的输出目的地，即 Appender -->
     <Appenders>
         <!-- 定义一个名为 Console 的控制台输出 Appender -->

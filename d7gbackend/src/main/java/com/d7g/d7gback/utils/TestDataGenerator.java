@@ -36,9 +36,9 @@ public class TestDataGenerator {
     }
 
     // 测试数据生成方法
-    public Object generateTestData(Object param) {
-        String type = detectType(param);
-        switch (type) {
+    public Object generateTestData(String param) {
+        // String type = detectType(param);
+        switch (param) {
             case "String":
                 return generateString();
             case "Integer":
@@ -63,13 +63,15 @@ public class TestDataGenerator {
                 return generateList();
             case "Map":
                 return generateMap();
+            case "LongString":
+                return generateStringWithLength(1000);
             default:
                 return "Unsupported Type";
         }
     }
 
     private String generateString() {
-        return "TestString_" + System.currentTimeMillis();
+        return "测试数据" + System.currentTimeMillis();
     }
 
     private Integer generateInteger() {
@@ -120,5 +122,15 @@ public class TestDataGenerator {
         map.put("key1", generateString());
         map.put("key2", generateInteger());
         return map;
+    }
+
+    private String generateStringWithLength(int length) {
+        String characters = "Aa0!1Bb2@3Cc4#5Dd6$7Ee8%9Ff测试数据";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            int index = (int) (Math.random() * characters.length());
+            sb.append(characters.charAt(index));
+        }
+        return sb.toString(); 
     }
 }
