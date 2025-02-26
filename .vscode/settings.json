@@ -1,4 +1,6 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "editor.fontFamily": "LXGW WenKai Mono GB Screen,Consolas, 'Courier New', monospace",
+    "marscode.chatLanguage": "cn"
 }

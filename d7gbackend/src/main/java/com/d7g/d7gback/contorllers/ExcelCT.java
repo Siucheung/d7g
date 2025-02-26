@@ -19,7 +19,7 @@ import com.d7g.d7gback.models.ExcelDemoModel;
 @RestController
 @RequestMapping("/excel")
 @Slf4j
-public class ExcelController {
+public class ExcelCT {
     
     @PostMapping("/upload")
     public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file) {
