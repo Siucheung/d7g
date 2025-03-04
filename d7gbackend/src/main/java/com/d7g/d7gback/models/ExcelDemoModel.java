@@ -3,7 +3,6 @@ package com.d7g.d7gback.models;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import java.util.Date;
 
 import cn.idev.excel.annotation.ExcelProperty;
 
@@ -17,8 +16,10 @@ public class ExcelDemoModel {
     private String parameterName;
     @ExcelProperty("参数类型")
     private String parameterType;
-    @ExcelProperty("是否必填")
+    @ExcelProperty("参数是否必填")
     private Boolean required;
+    @ExcelProperty("参数长度限制")
+    private String lengthLimit;
     @ExcelProperty("说明")
     private String description;
 }
