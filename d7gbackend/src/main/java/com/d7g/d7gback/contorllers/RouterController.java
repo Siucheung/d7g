@@ -1,7 +1,10 @@
 package com.d7g.d7gback.contorllers;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,15 +18,43 @@ import com.d7g.d7gback.services.ResponseResult;
 @Slf4j
 public class RouterController {
 
-    @GetMapping("/get-async-routes-backup")
-    public ResponseResult<List<Route>> getAsyncRoutes() {
-
+    @GetMapping("/get-async-routes")
+    public ResponseResult<List<Map<String, Object>>> getAsyncRoutes() {
         return ResponseResult.success(Arrays.asList(
-                buildpermissionRouter(),
-                buildTestManagementRouter(),
-                buildTestScriptRouter()));
+        //     buildRouteStructure(buildpermissionRouter()),
+            buildRouteStructure(buildTestManagementRouter()),
+            buildRouteStructure(buildTestScriptRouter())
+        ));
     }
 
+    // 通用路由结构构建方法
+    private Map<String, Object> buildRouteStructure(Route root) {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("path", root.getPath());
+        if (root.getComponent() != null) map.put("component", root.getComponent());
+        if (root.getName() != null) map.put("name", root.getName());
+        map.put("meta", buildMetaStructure(root.getMeta()));
+        
+        if (root.getChildren() != null && !root.getChildren().isEmpty()) {
+            List<Map<String, Object>> children = new ArrayList<>();
+            for (Route child : root.getChildren()) {
+                children.add(buildRouteStructure(child));
+            }
+            map.put("children", children);
+        }
+        return map;
+    }
+
+    // Meta结构构建方法
+    private Map<String, Object> buildMetaStructure(Meta meta) {
+        Map<String, Object> metaMap = new LinkedHashMap<>();
+        metaMap.put("title", meta.getTitle());
+        if (meta.getIcon() != null) metaMap.put("icon", meta.getIcon());
+        if (meta.getRank() != null) metaMap.put("rank", meta.getRank());
+        if (meta.getRoles() != null) metaMap.put("roles", meta.getRoles());
+        if (meta.getAuths() != null) metaMap.put("auths", meta.getAuths());
+        return metaMap;
+    }
     private Route buildpermissionRouter() {
         Meta permission_children_meta_level2_2 = new Meta("登录接口返回按钮权限",
                 null,
@@ -157,6 +188,7 @@ public class RouterController {
                         tm_children_route_level1_4));
 
         return tmRouter;
+        
     }
 
     private Route buildTestScriptRouter() {
@@ -236,9 +268,9 @@ public class RouterController {
                 ts_children_meta_level2_2,
                 null);
         Route ts_children_route_level2_1 = new Route(
-                "/atexecutemanagement/index",
+                "/atexecutionmanagement/index",
                 null,
-                "ATExecuteManagement",
+                "ATExecutionManagement",
                 ts_children_meta_level2_1,
                 null);
 
@@ -246,7 +278,7 @@ public class RouterController {
                 "/ioatscriptmanagement/index",
                 null,
                 "IOATScriptManagement",
-                ts_children_meta_level1_1_3,
+                ts_children_meta_level1_1_1,
                 null);
         Route ts_children_route_level1_1_2 = new Route(
                 "/uiatscriptmanagement/index",
@@ -255,10 +287,10 @@ public class RouterController {
                 ts_children_meta_level1_1_2,
                 null);
         Route ts_children_route_level1_1_1 = new Route(
-                "/apiatscriptmanagement/index",
+                "/performanceatscriptmanagement/index",
                 null,
-                "APIATScriptManagement",
-                ts_children_meta_level1_1_1,
+                "PFATScriptManagement",
+                ts_children_meta_level1_1_3,
                 null);
         Route ts_children_route_level1_1 = new Route(
                 "/atscriptmanagement",
